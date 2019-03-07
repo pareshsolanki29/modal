@@ -1,0 +1,69 @@
+<html>
+    <head>
+        <style>
+            body{
+             margin: 0;
+             padding: 0;
+            }
+            #modal-container{
+                position:fixed;
+                height: 100vh;
+                width: 100vh;
+                background-color: rgba(0,0,0,0.9);
+                display: none;
+            }
+           #modal{
+               min-width: 300px;;
+               min-height: 300px;
+               background: white;
+               max-width: 80%;
+               display: grid;
+               align-self: center;
+               justify-self: center;
+               place-self: center;
+
+               padding: 0 10px 10px 10px;
+               grid-row-gap: 5px;
+               grid-template-rows: auto 1fr auto;
+           }
+           #close-modal{
+               justify-self: right;
+               font-size: xx-large;
+           }
+
+        </style>
+        <script>
+            function toggleModal(){
+                const modal = document.getElementById('modal-container');
+                const displaValue = window.getComputedStyle(modal).getPropertyValue('display');
+                console.log(displaValue);
+                if(displaValue ==='none'){
+                    modal.style.display = 'grid';
+                }
+                else{
+                    modal.style.display ==='none';
+                }
+            }
+
+        </script>
+    </head>
+
+    <body>
+        
+        <div id="modal-container">
+            <div id="modal">
+                <div id="close-modal" onclick="toggleModal()">
+                 &times;
+                </div>
+                <div id="modal-content">
+                        <h1>smash it</h1>
+                    </div>
+                    <div id="modal-actions">
+                        <button onclick="toggleModal()">Save</button>
+                    </div>
+            </div>
+        </div>
+
+        <button onclick="toggleModal()">Show Modal</button>
+    </body>
+</html>
